@@ -1,0 +1,152 @@
+HDF5 "keras_sample.h5" {
+GROUP "/" {
+   ATTRIBUTE "keras_version" {
+      DATATYPE  H5T_STRING {
+         STRSIZE H5T_VARIABLE;
+         STRPAD H5T_STR_NULLTERM;
+         CSET H5T_CSET_ASCII;
+         CTYPE H5T_C_S1;
+      }
+      DATASPACE  SCALAR
+      DATA {
+      (0): "1.1.2"
+      }
+   }
+   ATTRIBUTE "model_config" {
+      DATATYPE  H5T_STRING {
+         STRSIZE H5T_VARIABLE;
+         STRPAD H5T_STR_NULLTERM;
+         CSET H5T_CSET_ASCII;
+         CTYPE H5T_C_S1;
+      }
+      DATASPACE  SCALAR
+      DATA {
+      (0): "{"class_name": "Sequential", "config": [{"class_name": "Flatten", "config": {"trainable": true, "batch_input_shape": [null, 28, 28, 1], "name": "flatten_11", "input_dtype": "float32"}}, {"class_name": "Dense", "config": {"trainable": true, "W_constraint": null, "activation": "linear", "W_regularizer": null, "name": "dense_12", "init": "glorot_uniform", "batch_input_shape": [null, 784], "activity_regularizer": null, "bias": true, "input_dtype": "float32", "b_regularizer": null, "output_dim": 128, "b_constraint": null, "input_dim": 784}}, {"class_name": "Activation", "config": {"trainable": true, "activation": "relu", "name": "activation_10"}}, {"class_name": "Dense", "config": {"trainable": true, "W_constraint": null, "activation": "linear", "W_regularizer": null, "name": "dense_13", "init": "glorot_uniform", "batch_input_shape": [null, 100], "activity_regularizer": null, "bias": true, "input_dtype": "float32", "b_regularizer": null, "output_dim": 10, "b_constraint": null, "input_dim": 100}}, {"class_name": "Activation", "config": {"trainable": true, "activation": "softmax", "name": "activation_11"}}]}"
+      }
+   }
+   ATTRIBUTE "training_config" {
+      DATATYPE  H5T_STRING {
+         STRSIZE H5T_VARIABLE;
+         STRPAD H5T_STR_NULLTERM;
+         CSET H5T_CSET_ASCII;
+         CTYPE H5T_C_S1;
+      }
+      DATASPACE  SCALAR
+      DATA {
+      (0): "{"loss": "categorical_crossentropy", "sample_weight_mode": null, "metrics": ["accuracy"], "optimizer_config": {"class_name": "Adadelta", "config": {"lr": 1.0, "decay": 0.0, "rho": 0.95, "epsilon": 1e-08}}, "loss_weights": null}"
+      }
+   }
+   GROUP "model_weights" {
+      ATTRIBUTE "layer_names" {
+         DATATYPE  H5T_STRING {
+            STRSIZE 13;
+            STRPAD H5T_STR_NULLPAD;
+            CSET H5T_CSET_ASCII;
+            CTYPE H5T_C_S1;
+         }
+         DATASPACE  SIMPLE { ( 5 ) / ( 5 ) }
+         DATA {
+         (0): "flatten_11\000\000\000", "dense_12\000\000\000\000\000",
+         (2): "activation_10", "dense_13\000\000\000\000\000",
+         (4): "activation_11"
+         }
+      }
+      GROUP "activation_10" {
+         ATTRIBUTE "weight_names" {
+            DATATYPE  H5T_IEEE_F64LE
+            DATASPACE  SIMPLE { ( 0 ) / ( 0 ) }
+            DATA {
+            }
+         }
+      }
+      GROUP "activation_11" {
+         ATTRIBUTE "weight_names" {
+            DATATYPE  H5T_IEEE_F64LE
+            DATASPACE  SIMPLE { ( 0 ) / ( 0 ) }
+            DATA {
+            }
+         }
+      }
+      GROUP "dense_12" {
+         ATTRIBUTE "weight_names" {
+            DATATYPE  H5T_STRING {
+               STRSIZE 12;
+               STRPAD H5T_STR_NULLPAD;
+               CSET H5T_CSET_ASCII;
+               CTYPE H5T_C_S1;
+            }
+            DATASPACE  SIMPLE { ( 2 ) / ( 2 ) }
+            DATA {
+            (0): "dense_12_W:0", "dense_12_b:0"
+            }
+         }
+         DATASET "dense_12_W:0" {
+            DATATYPE  H5T_IEEE_F32LE
+            DATASPACE  SIMPLE { ( 784, 128 ) / ( 784, 128 ) }
+            DATA {
+            (0,0): 0.0459725, -0.0645722, 0.0047018, 0.0308829, -0.0415942,
+            (0,5): 0.0359689, -0.0216266, -0.0787249, 0.0348144, 0.0100483,
+            (0,10): -0.0547611, -0.0659237, 0.0159612, 0.0211124, -0.0788453,
+            (0,15): -0.0163359, 0.00600474, 0.0320906, -0.0318667,
+            (0,19): -0.0451901, 0.0638782, -0.0132921, 0.0765437, -0.0767863,
+            (0,24): -0.0184863, -0.0632737, -0.055409, -0.0734449,
+            (0,28): -0.0667848, 0.00694141, 0.00846142, 0.0399029,
+            (0,32): 0.00237283, -0.0157956, 0.077378, -0.0492696, -0.0183454,
+            (783,117): -0.0190273, 0.0235034, -0.0149816, 0.0726974,
+            (783,121): 0.0187581, -0.00456426, -0.0542867, 0.0763813,
+            (783,125): -0.0335788, 0.0613019, -0.0494755
+            }
+         }
+         DATASET "dense_12_b:0" {
+            DATATYPE  H5T_IEEE_F32LE
+            DATASPACE  SIMPLE { ( 128 ) / ( 128 ) }
+            DATA {
+            (0): -0.00205397, -0.0344802, 0.0623683, -0.0555922, 0.0639555,
+            (5): 0.0509299, -0.0633363, -0.0660438, 0.00782785, 0.0152252,
+            (10): 0.0142201, 0.12701, -0.117776, -0.0996178, -0.0334821,
+            (117,0): -0.29754, 0.131428, 0.206871, 0.33376, -0.274589,
+            (117,5): -0.154449, -0.389526, -0.492999, -0.140584, 0.0353191,
+            (118,0): -0.0368152, 0.0570843, 0.089206, -0.0592133, 0.0621493,
+            (118,5): 0.113461, 0.121989, 0.105048, -0.259958, -0.27441,
+            (119,0): -0.0479208, 0.0143589, -0.279408, 0.205757, -0.429442,
+            (119,5): 0.172754, 0.183596, -0.173069, -0.28935, -0.386225,
+            (120,0): -0.247055, 0.0656999, -0.0879043, -0.0239447,
+            (120,4): -0.0498725, -0.134978, 0.028748, -0.130352, 0.0788365,
+            (120,9): -0.00216637,
+            (121,0): 0.0803986, -0.107954, -0.0412339, -0.193203, -0.263554,
+            (121,5): -0.158397, 0.0267588, 0.00324454, 0.205175, -0.123237,
+            (122,0): -0.0605, -0.238935, 0.278686, 0.133399, 0.0785572,
+            (122,5): 0.0766499, 0.0105268, -0.240908, -0.347106, -0.464166,
+            (123,0): -0.1823, -0.0803095, 0.0256367, -0.2061, 0.128393,
+            (123,5): -0.0783221, -0.428146, 0.000560663, 0.110228,
+            (123,9): -0.0923361,
+            (124,0): -0.420302, 0.119834, -0.0928764, -0.33264, 0.306784,
+            (124,5): 0.0329645, -0.399758, 0.08959, 0.0764083, -0.17102,
+            (125,0): -0.400796, 0.191519, -0.190996, -0.134301, 0.127914,
+            (125,5): 0.156565, -0.262813, 0.165501, -0.104336, 0.073548,
+            (126,0): -0.00780544, -0.327489, 0.0892711, -0.0268143, 0.217309,
+            (126,5): 0.105748, 0.0745076, 0.0422392, 0.139277, -0.29661,
+            (127,0): 0.189611, -0.267071, -0.163174, -0.111685, -0.260776,
+            (127,5): -0.147841, -0.148696, -0.141119, 0.314235, 0.208721
+            }
+         }
+         DATASET "dense_13_b:0" {
+            DATATYPE  H5T_IEEE_F32LE
+            DATASPACE  SIMPLE { ( 10 ) / ( 10 ) }
+            DATA {
+            (0): -0.103696, -0.010409, 0.0140784, -0.0928243, 0.0172968,
+            (5): 0.115471, -0.0303445, 0.0385754, -0.0189923, -0.0337518
+            }
+         }
+      }
+      GROUP "flatten_11" {
+         ATTRIBUTE "weight_names" {
+            DATATYPE  H5T_IEEE_F64LE
+            DATASPACE  SIMPLE { ( 0 ) / ( 0 ) }
+            DATA {
+            }
+         }
+      }
+   }
+}
+}
