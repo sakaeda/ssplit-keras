@@ -6,19 +6,38 @@ from keras.layers import Dense, Activation, Embedding, Convolution1D
 from keras.utils import np_utils
 from keras import backend as K 
 
+# Parameters
+## Embedding
+vocalurary = 10000
+embDimention = 12
+embInputLength = 10000
+
+## Convolution1D first
+convFirstOutch = 128
+convFirstWidth = 5
+
+## Convolution1D second
+convSecondOutch = 3
+convSecondWidth = 1
+
+# Model construction
 model = Sequential()
-model.add(Embedding(10000, 12, input_length=10000))
-model.add(Convolution1D(128, 5, border_mode='same', input_shape=(10000, 12)))
+model.add(Embedding(vocalurary, embDimention, input_length=embInputLength))
+model.add(Convolution1D(convFirstOutch, convFirstWidth, border_mode='same', input_shape=(embInputLength, embDimention)))
 model.add(Activation('relu'))
-model.add(Convolution1D(3, 1, border_mode='same', input_shape=(10000, 128)))
+model.add(Convolution1D(convSecondOutch, convSecondWidth, border_mode='same', input_shape=(embInputLength, convFirstOutch)))
 model.add(Activation('softmax'))
 model.compile(loss='categorical_crossentropy', optimizer='adadelta', metrics=['accuracy'])
 
-X_train = np.random.randint(10, size=(10,10000))
-y_train = np.random.randint(3, size=(10, 10000))
+# Preprocessing data
+y_train = np.random.randint(3, size=(100, 10000))
+X_train = y_train
 
-y_train = y_train.reshape(10*10000)
-Y_train = np_utils.to_categorical(y_train, 3).reshape(10, 10000, 3)
+y_train = y_train.reshape(100*10000)
+Y_train = np_utils.to_categorical(y_train, 3).reshape(100, 10000, 3)
 
-model.fit(X_train, Y_train, nb_epoch=10, verbose=1)
+# Training
+model.fit(X_train, Y_train, batch_size=10, nb_epoch=10, verbose=1)
+
+
 
