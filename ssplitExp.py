@@ -61,4 +61,4 @@ Y_train = np_utils.to_categorical(y_train, 3).reshape(input_shape[0], input_shap
 #model.fit(X_train, Y_train, batch_size=100, nb_epoch=20, verbose=1)
 model.fit(X_train, Y_train, validation_split=0.1, nb_epoch=100, verbose=1)
 
- model.save('./models/ssplit_model.h5')
+model.save('./models/ssplit_model.h5')
